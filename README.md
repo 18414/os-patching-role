@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 Role Name
 =========
 
@@ -40,4 +39,4 @@ An optional section for the role authors to include contact information, or a we
 =======
 # os-patching-role
 This role is created to patch Linux kernel and packages
->>>>>>> fd5967a2d20f5bde339f1978203a5ac21125b305
+
