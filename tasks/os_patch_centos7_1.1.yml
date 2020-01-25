@@ -1,13 +1,4 @@
 ---
-- hosts: doc
-  become: true
-  serial: 2
-  gather_facts: yes
-  vars_prompt: 
-    name: service_name
-    prompt: please enter the service name which should be stop
-    private: no
-  tasks:
     - name: old kernel version 
       shell: uname -r
       register: old_kernel

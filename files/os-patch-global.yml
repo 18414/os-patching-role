@@ -1,0 +1,15 @@
+---
+- hosts: "{{ myhost }}" 
+  become: true
+  vars_prompt:
+    - name: patchroll
+      prompt: Please enter P to patch and R rollback 
+      private: no
+
+    - name: service_name
+      prompt: please enter the service name which want to stop
+      private: no
+ 
+  roles: 
+    - os-patching-role
+
