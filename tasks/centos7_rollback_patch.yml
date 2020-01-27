@@ -1,29 +1,21 @@
 ---
-- hosts: doc
-  become: true
-  tasks:
     - name: RUN Roll back script
-      script: /home/ansible/ansible/playbooks/update_rollback.sh
-    #  when: my_pause.stdout == "yes"
-
-   # - meta: end_play
-   #   when: my_pause.stdout == "no"
+      script: /home/ansible/os-patching-role/files/update_rollback.sh
 
     - name: restart systemc
       command: shutdown -r +1 "Rebooting System After Patching"
       async: 0
       poll: 0
-     #when: reboot_required.stdout == "reboot_needed"
       register: postrollback_started
       ignore_errors: true
+      
 
     - name: Pause for 180 secs
       pause:
         minutes: 3
 
     - name: Check if system responding to ssh
-      local_action:
-        module: wait_for
+      wait_for: 
           host={{ inventory_hostname }}
           port=22
           delay=15

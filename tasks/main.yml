@@ -1,3 +1,17 @@
 ---
 # tasks file for os-patching-role
-- include_tasks: "{{ patchroll }}.yml"
+- set_fact: 
+    decision: "{{ patchroll }}"
+
+- debug: msg={{ decision }}
+
+
+- include_tasks: os_patch_centos7_1.1.yml
+  when: decision == "p"
+
+- include_tasks: centos7_rollback_patch.yml
+  when: decision == "r"
+
+- meta: end_play
+  when: decision == "n"
+
