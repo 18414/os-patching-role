@@ -1,7 +1,7 @@
 ######################################################################################
 # Script: checklist.sh                                                               #
 # Description: Script will take checklist of server and email it to cyb_sys_eng_team #
-# Author: Mayuresh Wadekar                                                           #
+# Author: 		                                                             #
 ######################################################################################
 
 #!/bin/sh
